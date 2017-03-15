@@ -2,32 +2,32 @@
 <html>
 <head>
 	<title>ytd-admin</title>
-	<script src="./assets/js/vue.min.js"></script>
 	<script src="./assets/js/socket.io.min.js"></script>
-	<script src="./assets/js/app.js"></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container" id="root">
-	<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
-	<table class="table table-bordered table-condensed">
-		<thead>
-			<tr>
-				<th>Node #</th>
-				<th>YouTube Data</th>
-				<th>Videos Uploaded</th>
-				<th>Node Status</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Login:Pass</td>
-				<td>12/1000</td>
-				<td>Making video</td>
-			</tr>
-		</tbody>			
-	</table>
-</div>
+	<div class="container" id="root">
+		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
+		<table class="table table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>Node #</th>
+					<th>YouTube Data</th>
+					<th>Videos Uploaded</th>
+					<th>Node Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="node in nodes">
+					<td>{{ node.id }}</td>
+					<td>{{ node.data }}</td>
+					<td>{{ node.uploaded }}</td>
+					<td>{{ node.status }}</td>
+				</tr>
+			</tbody>			
+		</table>
+	</div>
+	<script src="./assets/js/app.js"></script>
 </body>
 </html>
