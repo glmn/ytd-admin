@@ -7,8 +7,13 @@ var vue = new Vue({
 	},	
 
 	created: function(){
-		socket.on('connect', function(io){
-			console.log('Connected');
+		socket.on('connect', function(){
+			socket.emit('nodes-request');
+
+			socket.on('nodes-response', function(data){
+				vue.nodes = [data];
+			})
+
 		})
 	}
 })
