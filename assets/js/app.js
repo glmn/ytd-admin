@@ -5,6 +5,6 @@ var vue = new Vue({
 	data: {},
 
 	created: function(){
-
+		
 	}
 })
