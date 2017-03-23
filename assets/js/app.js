@@ -1,4 +1,5 @@
 var socket = io(":3000");
+
 var vue = new Vue({
 	el: "#root",
 
@@ -11,9 +12,10 @@ var vue = new Vue({
 			socket.emit('admin:workers-request');
 
 			socket.on('admin:workers-response', function(workers){
-				vue.workers = [workers];
+				console.log(workers);
+				vue.workers = workers;
 			})
 
 		})
-	}
+	},
 })
