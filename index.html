@@ -9,21 +9,18 @@
 <body>
 	<div class="container" id="root">
 		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
-		<table class="table table-bordered table-condensed">
+		<table v-for="worker in workers" class="table table-bordered table-condensed">
+			<thead>
+				<th colspan="4">{{ worker.status}}</th>
+			</thead>
 			<tbody>
-				<tr v-for="worker in workers">
-					<td colspan="4">
-						<table>
-							<tr v-for="account in worker.accounts">
-								<td>{{account.id}}</td>
-								<td>{{account.id}}</td>
-								<td>{{account.id}}</td>
-								<td>{{account.id}}</td>
-							</tr>
-						</table>
-					</td>
+				<tr v-for="account in worker.accounts">
+					<td>{{account.id}}</td>
+					<td>{{account.id}}</td>
+					<td>{{account.id}}</td>
+					<td>{{account.id}}</td>
 				</tr>
-			</tbody>			
+			</tbody>		
 		</table>
 	</div>
 	<script src="./assets/js/app.js"></script>
