@@ -11,14 +11,14 @@
 		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
 		<table v-for="worker in workers" class="table table-bordered table-condensed">
 			<thead>
-				<th colspan="4">{{ worker.status}}</th>
+				<th colspan="4">Current hotel: {{worker.current_hotel.name }} ({{ worker.current_hotel.id }}) </th>
 			</thead>
 			<tbody>
 				<tr v-for="account in worker.accounts">
-					<td>{{account.id}}</td>
-					<td>{{account.id}}</td>
-					<td>{{account.id}}</td>
-					<td>{{account.id}}</td>
+					<td>{{account.status}}</td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 			</tbody>		
 		</table>
