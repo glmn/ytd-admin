@@ -9,16 +9,28 @@
 <body>
 	<div class="container" id="root">
 		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
-		<table v-for="worker in workers" class="table table-bordered table-condensed">
+		<table v-for="worker in workers" class="table table-condensed">
 			<thead>
-				<th colspan="4">Current hotel: {{worker.current_hotel.name }} ({{ worker.current_hotel.id }}) </th>
+				<th>id</th>
+				<th>tokens</th>
+				<th>uploaded</th>
+				<th>status</th>
 			</thead>
 			<tbody>
 				<tr v-for="account in worker.accounts">
-					<td>{{account.status}}</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{account.id}}</td>
+					<td>
+						<div>{{account.access_token}}</div>
+						<div><small>{{account.refresh_token}}</small></div>
+					</td>
+					<td>
+						<div>
+							{{account.uploaded_videos}} / <small>{{account.total_uploaded_videos}}</small>
+						</div>
+					</td>
+					<td>
+						<div>{{account.status}}</div>
+					</td>
 				</tr>
 			</tbody>		
 		</table>
