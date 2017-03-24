@@ -4,38 +4,48 @@
 	<title>ytd-admin</title>
 	<script src="./assets/js/socket.io.min.js"></script>
 	<script src="https://vuejs.org/js/vue.js"></script>
-	<link rel="stylesheet" type="text/css" href ="./assets/css/semantic.min.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="./assets/js/semantic.min.js"></script>
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.css">
 </head>
 <body>
 	<div class="container" id="root">
-		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
-		<table v-for="worker in workers" class="table table-condensed">
-			<thead>
-				<th>id</th>
-				<th>tokens</th>
-				<th>uploaded</th>
-				<th>status</th>
-			</thead>
-			<tbody>
-				<tr v-for="account in worker.accounts">
-					<td>{{account.id}}</td>
-					<td>
-						<div>{{account.access_token}}</div>
-						<div><small>{{account.refresh_token}}</small></div>
-					</td>
-					<td>
-						<div>
-							{{account.uploaded_videos}} / <small>{{account.total_uploaded_videos}}</small>
+		<div class="page-header"><h3>YouTube Doorway</h3></div>
+		<div class="row">
+			<!-- Worker -->
+			<div class="col-md-3" v-for="worker in workers">
+				<!-- Panel -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<a href="#">
+							<span class="glyphicon glyphicon-tint" style="color:#0080ff" />
+						</a>
+						droplet
+						<div class="pull-right">
+							127.0.0.1
 						</div>
-					</td>
-					<td>
-						<div>{{account.status}}</div>
-					</td>
-				</tr>
-			</tbody>		
-		</table>
+					</div>
+					<!-- Table -->
+					<table class="table">
+						<tbody>
+							<!-- Account -->
+							<tr v-for="account in worker.accounts">
+								<td>
+									<div><a href="#">Hotels Paradise</a></div>
+									<div><small style="color:grey">
+										#{{account.id}} - {{account.uploaded_videos}} / {{account.total_uploaded_videos}} - {{(account.status) ? account.status : 'sleep'}}
+									</small> </div>
+								</td>
+							</tr>
+							<!-- Account/end -->
+
+						</tbody>
+					</table>
+				</div>
+				<!-- Panel/end -->
+			</div>
+			<!-- Worker -->
+
+		</div>
 	</div>
 	<script src="./assets/js/app.js"></script>
 </body>
