@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ytd-admin</title>
+	<script src="./assets/js/socket.io.min.js"></script>
+	<script src="https://vuejs.org/js/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href ="semantic/dist/semantic.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+	<div class="container" id="root">
+		<div class="page-header"><h3>YouTube Doorway Admin Panel</h3></div>
+		<table v-for="worker in workers" class="table table-condensed">
+			<thead>
+				<th>id</th>
+				<th>tokens</th>
+				<th>uploaded</th>
+				<th>status</th>
+			</thead>
+			<tbody>
+				<tr v-for="account in worker.accounts">
+					<td>{{account.id}}</td>
+					<td>
+						<div>{{account.access_token}}</div>
+						<div><small>{{account.refresh_token}}</small></div>
+					</td>
+					<td>
+						<div>
+							{{account.uploaded_videos}} / <small>{{account.total_uploaded_videos}}</small>
+						</div>
+					</td>
+					<td>
+						<div>{{account.status}}</div>
+					</td>
+				</tr>
+			</tbody>		
+		</table>
+	</div>
+	<script src="./assets/js/app.js"></script>
+</body>
+</html>
