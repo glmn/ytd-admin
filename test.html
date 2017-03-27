@@ -12,16 +12,16 @@
 		<div class="page-header"><h3>YouTube Doorway</h3></div>
 		<div class="row">
 			<!-- Worker -->
-			<div class="col-md-3" v-for="worker in workers">
+			<div class="col-md-4" v-for="worker in workers">
 				<!-- Panel -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a href="#">
 							<span class="glyphicon glyphicon-tint" style="color:#0080ff" />
 						</a>
-						droplet
+						{{ worker.droplet.host }}
 						<div class="pull-right">
-							127.0.0.1
+							{{ worker.droplet.ip }}
 						</div>
 					</div>
 					<!-- Table -->
@@ -30,7 +30,7 @@
 							<!-- Account -->
 							<tr v-for="account in worker.accounts">
 								<td>
-									<div><a href="#">Hotels Paradise</a></div>
+									
 									<div><small style="color:grey">
 										#{{account.id}} - {{account.uploaded_videos}} / {{account.total_uploaded_videos}} - {{(account.status) ? account.status : 'sleep'}}
 									</small> </div>
